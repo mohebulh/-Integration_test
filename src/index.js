@@ -2,6 +2,7 @@
 const express = require("express");
 const mysql = require("mysql2");
 const countryRoutes = require("./models/country");
+const languageRoutes= require("./models/languagereport")
 
 // Create express instance
 const app = express();
@@ -22,6 +23,7 @@ app.use(express.static('static'));
 
 // Use the routes defined in countryRoutes.js, passing the app and db as arguments
 countryRoutes(app, db);
+languageRoutes(app,db);
 
 // Home Page route
 app.get("/", (req, res) => {

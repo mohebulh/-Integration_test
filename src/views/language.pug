@@ -1,0 +1,26 @@
+extends layout.pug
+
+block content
+    
+    //- Page Title 
+    h1 Language Report
+        //-Search Form
+        form(action="/languages" method='get')
+            input#searchInput(type='text' name='languageName' placeholder= 'Search language...')
+            //-button(type='submit') Search 
+        //- Language Header
+        table
+            thead
+                tr  
+                    th Language
+                    th Total Speakers
+                    th Percentage of World Population
+        
+            //- Language Table Data
+            tbody
+                //- Loop through languages
+                each language in languages
+                    tr
+                        td= language.Language  
+                        td= language.TotalSpeakers
+                        td= language.PercentageOfWorldPopulation
