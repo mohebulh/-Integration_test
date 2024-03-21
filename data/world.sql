@@ -5439,29 +5439,3 @@ SET autocommit=@old_autocommit;
 
 
 
--- Create a new table to store language statistics
-CREATE TABLE IF NOT EXISTS `language_statistics` (
-  `Language` char(30) NOT NULL DEFAULT '',
-  `NumSpeakers` bigint NOT NULL DEFAULT '0',
-  `PercentageOfWorldPopulation` decimal(10, 2) NOT NULL DEFAULT '0.00'
-);
-
-DECLARE @SpecificLanguages TABLE (Language CHAR(30));
-INSERT INTO @SpecificLanguages VALUES ('Chinese'), ('English'), ('Hindi'), ('Spanish'), ('Arabic');
-
--- Insert data into the new table for specific languages
-INSERT INTO `language_statistics` (Language, NumSpeakers, PercentageOfWorldPopulation)
-SELECT 
-    cl.Language,
-    SUM(c.Population * (cl.Percentage / 100)) AS NumSpeakers,
-    SUM(c.Population * (cl.Percentage / 100)) / (SELECT SUM(Population) FROM country) * 100 AS PercentageOfWorldPopulation
-FROM 
-    countrylanguage cl
-JOIN 
-    country c ON cl.CountryCode = c.Code
-WHERE
-    cl.Language IN (SELECT Language FROM @SpecificLanguages)
-GROUP BY 
-    cl.Language;
-
-
