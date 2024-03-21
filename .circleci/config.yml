@@ -13,8 +13,9 @@ jobs:
   build:
     working_directory: ~/integration_test/src
     docker:
-      - image: integration_test-webserver
-      - image: mysql
+      -image: cimg/node:lts
+      #- image: integration_test-webserver
+      #- image: mysql
     steps:
       -checkout:
         path: ~/integration_test
