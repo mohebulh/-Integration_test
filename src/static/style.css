@@ -1,0 +1,143 @@
+ html,
+body {
+  font-size: 14px;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #eeeeee;
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure the body does not overflow */
+  overflow-x: hidden; /* Hide horizontal scroll */
+  box-sizing: border-box; /* Include padding and border in the element's width and height */
+}
+
+/********** CSS Styles for Navbar ***********/
+nav.navbar {
+    background: #2b2d42; /* Updated background color */
+    padding: 16px; /* Removed padding here; will apply it to the links */
+    display: flex;
+    justify-content: space-between; /* Positions items to the left, center, and right */
+    align-items: center;
+    position: fixed; /* Fixed positioning makes the navbar stay at the top */
+    top: 0; /* Align the navbar at the top */
+    left: 0; /* Align the navbar to the left */
+    right: 0; /* Stretch the navbar to the right */
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    z-index: 1000; /* Ensure navbar stays above other content */
+}
+
+.navbar-left a,
+.navbar-center a,
+.navbar-right a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px; /* Consistent padding for clickable area */
+    text-decoration: none;
+    font-size: 18px; /* Consistent font size */
+    font-weight: bold; /* Consistent font weight */
+}
+
+.navbar-left,
+.navbar-center ul,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-center ul {
+    list-style: none;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-center ul li {
+    margin: 0 10px; /* Space out the list items */
+}
+
+.navbar-right {
+    margin-right: 10px; /* Space for the right side of the navbar */
+}
+
+.navbar-right a.button {
+    background-color: #05668d; /* Button color */
+    border: none;
+    padding: 12px 12px;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners for the button */
+    text-decoration: none;
+    color: #fff; /* Text color for the button */
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Separate the button from other links */
+    margin-right: 32px;
+}
+
+.navbar-right a.button:hover {
+    background-color: #028090; /* Button color on hover */
+    transform: scale(1.05); /* Slightly increase the button size on hover */
+}
+
+
+/************** Country Table ************/
+
+h1 {
+    text-align: center;
+    margin-top: 16rem;
+    color: #073b4c;
+    font-size: 3rem;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 3rem auto;
+    margin-top: 8rem;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #dddada;
+}
+
+th {
+    padding-top: 20px;
+    padding-bottom: 24px;
+    background-color: #666;
+    text-align: center;
+    color: white;
+}
+
+
+/*********** Styles for the search input *************/
+#searchInput {
+    width: 150px;        /* Width of the search box */
+    height: 30px;        /* Height of the search box */
+    border: 1px solid #ddd; /* Border color */
+    border-radius: 20px; /* Rounded corners */
+    padding: 5px 10px;   /* Padding inside the search box */
+    margin-top: 40px;    /* Spacing between the search box and the table */
+    font-size: 16px;     /* Font size inside the search box */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    outline: none;       /* Remove the default focus outline */
+}
+
+/* Change border and box-shadow when the search box is clicked on (is in focus) */
+#searchInput:focus {
+    border-color: #aaa;  /* Darker border on focus */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
